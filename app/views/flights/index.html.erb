@@ -1,0 +1,26 @@
+<div id="search_bar">
+  <% # Should be GET request, not POST %>
+  <%= form_for(:flights, html: { method: :get }, remote: true) do |f| %>
+
+  <% # Change to select inputs %>
+  <%= f.label :from_airport %>
+  <%= f.text_field :from_airport %>
+  <%= f.label :to_airport %>
+  <%= f.text_field :to_airport %>
+
+  <%= f.label :number_passengers %>
+  <%= f.text_field :number_passengers %>
+  <% # Change to date picker %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+
+  <%= f.submit "Search" %>
+
+  <% end %>
+
+
+
+  </div>
+
+  <div id="results">
+  </div>
