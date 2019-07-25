@@ -2,17 +2,19 @@
   <% # Should be GET request, not POST %>
   <%= form_for(:flights, html: { method: :get }, remote: true) do |f| %>
 
-  <% # Change to select inputs %>
+
   <%= f.label :from_airport %>
-  <%= f.text_field :from_airport %>
+  <%= f.select :from_airport, @airport_options %>
   <%= f.label :to_airport %>
-  <%= f.text_field :to_airport %>
+  <%= f.select :to_airport, @airport_options %>
 
   <%= f.label :number_passengers %>
-  <%= f.text_field :number_passengers %>
-  <% # Change to date picker %>
-  <%= f.label :date %>
-  <%= f.text_field :date %>
+  <%= f.select :number_passengers, ['1','2','3','4'] %>
+
+  <%= f.label :month %>
+  <%= select_month(Date.today) %>
+  <%= f.label :day %>
+  <%= select_day(Date.today) %>
 
   <%= f.submit "Search" %>
 
@@ -21,6 +23,6 @@
 
 
   </div>
-
+  <div style="clear:both"></div>
   <div id="results">
   </div>
