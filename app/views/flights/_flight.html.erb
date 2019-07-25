@@ -1,4 +1,5 @@
 <div id="flight-container" style="margin: 20px;">
+  <%= radio_button("flight", "flight_id", flight.id)%>
   <strong>
     <%= flight.from_airport.code %> > <%= flight.to_airport.code %>
   </strong>

@@ -7,6 +7,7 @@ class FlightsController < ApplicationController
         @available_flights = []
       end
       format.js do
+        @number_passengers = params[:flights][:number_passengers]
         to_airport = Airport.find_by(code: params[:flights][:to_airport])
         from_airport = Airport.find_by(code: params[:flights][:from_airport])
         start_date = Date.new(2019,params[:date][:month].to_i,
