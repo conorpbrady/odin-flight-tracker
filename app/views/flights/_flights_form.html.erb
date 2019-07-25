@@ -1,6 +1,6 @@
 
 <%= form_for(:booking, url: bookings_new_path, html: {id: "results_form", method: :get } ) do |f| %>
 <%= render @available_flights %>
-<%= f.hidden :number_passengers, @number_passengers
+<%= f.hidden_field :number_passengers, { value: @number_passengers } %>
 <%= f.submit "Select Flight" %>
 <% end %>

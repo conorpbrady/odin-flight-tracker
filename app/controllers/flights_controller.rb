@@ -16,8 +16,7 @@ class FlightsController < ApplicationController
         #                          from_airport: from_airport,
         #                          start_date: start_date)
 
-        @available_flights = Flight.where("finish_id = ? AND start_id = ? AND start_date > ? AND start_date < ?",
-                                  to_airport, from_airport, start_date, start_date.next)
+        @available_flights = Flight.where("finish_id = ? AND start_id = ? AND start_date > ? AND start_date < ?", to_airport, from_airport, start_date, start_date.next)
 
       end
     end
