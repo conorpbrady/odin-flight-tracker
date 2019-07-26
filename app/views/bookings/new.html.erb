@@ -1,2 +1,15 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
+<%= form_for :booking do |f| %>
+
+<%= fields_for :passenger do |passenger_field| %>
+    <%= passenger_field.label :name %>
+    <%= passenger_field.text_field :name %>
+
+    <%= passenger_field.label :email %>
+    <%= passenger_field.text_field :email %>
+
+<% end %>
+
+<%= f.submit "Book" %>
+<% end %>

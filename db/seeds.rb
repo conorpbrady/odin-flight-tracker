@@ -27,3 +27,7 @@ Flight.create(start_id: 3, finish_id: 2, start_date: 2.day.from_now, duration: 6
 Flight.create(start_id: 3, finish_id: 4, start_date: 1.day.from_now, duration: 360)
 
 Flight.create(start_id: 4, finish_id: 3, start_date: 2.day.from_now, duration: 360)
+
+Passenger.create(name: "Jim", email: "jim@email.com")
+
+Booking.create(passenger_id: 1, flight_id: 1)
