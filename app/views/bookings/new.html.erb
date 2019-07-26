@@ -1,14 +1,22 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
-<%= form_for :booking do |f| %>
+<h1>Passenger Info</h1>
 
-<%= fields_for :passenger do |passenger_field| %>
+<div id="flight-info">
+  <%= "#{@flight.from_airport.code} > #{@flight.to_airport.code}" %>
+  </div>
+  <br>
+<%= form_for @booking, url: bookings_new_path, html: { method: :post } do |f| %>
+  <%= f.hidden_field :flight_id, { value: @flight.id } %>
+<%= f.fields_for :passengers do |passenger_field| %>
+
+    <strong>
+    <%= passenger_field.label "Passenger #{(passenger_field.index + 1)}: " %>
+    </strong><br>
     <%= passenger_field.label :name %>
     <%= passenger_field.text_field :name %>
 
     <%= passenger_field.label :email %>
     <%= passenger_field.text_field :email %>
-
+    <br><br>
 <% end %>
 
 <%= f.submit "Book" %>
